@@ -9,6 +9,9 @@ sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://raw.githubusercontent.com/aleftik/maven-repo/master/releases'
+    }
 }
 
 dependencies {
