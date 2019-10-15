@@ -6,7 +6,7 @@ import javax.ws.rs.client.ClientRequestFilter;
 import java.io.IOException;
 import java.util.Objects;
 
-public class EventAPIRESTEndpoint extends AbstractRESTClientBuilder implements RESTClientBuilder {
+public class EventAPIRESTEndpoint extends AbstractRESTClientBuilder {
 
     private String url;
     private String apiKey;

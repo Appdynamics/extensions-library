@@ -6,7 +6,7 @@ import org.glassfish.jersey.client.ClientProperties;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 
-public class AbstractRESTClientBuilder {
+public abstract class AbstractRESTClientBuilder implements RESTClientBuilder {
     public static final int TWO_MINUTES = 60 * 1000 * 2;
     public static final int TWENTY_SECONDS = 20 * 1000;
     public static final String AUTHORIZATION = "Authorization";
@@ -28,4 +28,7 @@ public class AbstractRESTClientBuilder {
         Client client = ClientBuilder.newClient(clientConfig);
         return client;
     }
+
+    @Override
+    public abstract Client build();
 }
