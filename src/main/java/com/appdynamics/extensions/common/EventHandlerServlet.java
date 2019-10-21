@@ -25,7 +25,7 @@ public abstract class EventHandlerServlet extends HttpServlet {
     }
 
 
-    static String getBody(HttpServletRequest request) throws IOException {
+    protected static String getBody(HttpServletRequest request) throws IOException {
         String body = null;
         StringBuilder stringBuilder = new StringBuilder();
         BufferedReader bufferedReader = null;
@@ -57,7 +57,7 @@ public abstract class EventHandlerServlet extends HttpServlet {
         return body;
     }
 
-    Gson getGson () {
+   protected Gson getGson () {
         return this.gson;
     }
 }
