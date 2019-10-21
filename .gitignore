@@ -21,27 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-.gradle/*
-gradle/*
+.gradle/
+.idea/
+gradle/
 gradlew
 gradle
 gradle.bat
 gradlew.bat
-.idea/*
-*.idea/**
-
-
-.idea/$PRODUCT_WORKSPACE_FILE$
-.idea/.name
-.idea/gradle.xml
-.idea/misc.xml
-.idea/vcs.xml
-.idea/$PRODUCT_WORKSPACE_FILE$
-.idea/.name
-.idea/gradle.xml
-.idea/misc.xml
-.idea/vcs.xml
-.idea/gradle.xml
-out/*
-
-.idea/gradle.xml
+out/
+build/
