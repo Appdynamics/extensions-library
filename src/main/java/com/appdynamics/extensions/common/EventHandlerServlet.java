@@ -21,7 +21,7 @@ public abstract class EventHandlerServlet extends HttpServlet {
 
     public EventHandlerServlet(Map<String, String>  props) {
         this.properties = props;
-        gson = new GsonBuilder().create();
+        gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ssz").create();
     }
 
 

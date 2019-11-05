@@ -19,7 +19,8 @@ public class JettyWebServer implements Runnable {
     public JettyWebServer(Integer port, Map<String, ServletHolder> servlets) {
         this.props  = props;
         this.servlets = servlets;
-        if (port == null) {
+        this.port = port;
+        if (this.port == null) {
             port = DEFAULT_PORT;
         }
     }
@@ -33,6 +34,7 @@ public class JettyWebServer implements Runnable {
 
         server.setHandler(context);
         for (String url: servlets.keySet()) {
+
             context.addServlet(servlets.get(url),url);
         }
 
