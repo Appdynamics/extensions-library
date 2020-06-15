@@ -1,6 +1,7 @@
 package com.appdynamics.extensions.common;
 
 
+import com.appdynamics.extensions.common.rest.EventAPIRESTEndpoint;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -13,6 +14,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import java.util.Map;
+import java.util.Properties;
 
 
 public abstract class EventHandlerServlet extends HttpServlet {
@@ -54,10 +56,18 @@ public abstract class EventHandlerServlet extends HttpServlet {
         }
 
         body = stringBuilder.toString();
+        System.out.println(body);
         return body;
     }
 
    protected Gson getGson () {
         return this.gson;
     }
+   protected Map<String,String> getConfiguration() {
+        return this.properties;
+   }
+
+   public EventAPIRESTEndpoint getEventAPIEndpoint() {
+       return new EventAPIRESTEndpoint(properties.get("events-url"),properties.get("global-account-key"),properties.get(""));
+   }
 }
