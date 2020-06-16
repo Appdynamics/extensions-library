@@ -1,6 +1,7 @@
 package com.appdynamics.extensions.common;
 
 
+import com.appdynamics.extensions.common.rest.ControllerRESTAPIEndpoint;
 import com.appdynamics.extensions.common.rest.EventAPIRESTEndpoint;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -69,5 +70,9 @@ public abstract class EventHandlerServlet extends HttpServlet {
 
    public EventAPIRESTEndpoint getEventAPIEndpoint() {
        return new EventAPIRESTEndpoint(properties.get("events-url"),properties.get("controller-event-api-key"), properties.get("global-account-key"));
+   }
+
+   public ControllerRESTAPIEndpoint getControllerEndpoint() {
+        return new ControllerRESTAPIEndpoint(properties.get("controller-url"),properties.get("controller-api-key"));
    }
 }
