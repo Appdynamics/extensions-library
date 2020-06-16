@@ -68,11 +68,11 @@ public abstract class EventHandlerServlet extends HttpServlet {
         return this.properties;
    }
 
-   public EventAPIRESTEndpoint getEventAPIEndpoint() {
+   protected EventAPIRESTEndpoint getEventAPIEndpoint() {
        return new EventAPIRESTEndpoint(properties.get("events-url"),properties.get("controller-event-api-key"), properties.get("global-account-key"));
    }
 
-   public ControllerRESTAPIEndpoint getControllerEndpoint() {
+    protected ControllerRESTAPIEndpoint getControllerEndpoint() {
         return new ControllerRESTAPIEndpoint(properties.get("controller-url"),properties.get("controller-api-key"));
    }
 }
