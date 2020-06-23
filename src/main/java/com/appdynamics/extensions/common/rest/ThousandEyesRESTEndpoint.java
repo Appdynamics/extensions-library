@@ -13,7 +13,7 @@ public class ThousandEyesRESTEndpoint extends AbstractOAUTHClientBuilder {
     public ThousandEyesRESTEndpoint (Integer version, String apiKey) {
         super(apiKey);
         if (version != null) {
-
+            this.version = version;
         }
     }
 
