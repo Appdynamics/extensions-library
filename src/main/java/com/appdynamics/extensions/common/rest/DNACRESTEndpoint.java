@@ -41,9 +41,9 @@ public class DNACRESTEndpoint extends AbstractRESTClientBuilder {
 
     private String apiKey = null;
 
-    public DNACRESTEndpoint(String url, String userName, String Password) {
+    public DNACRESTEndpoint(String url, String userName, String password) {
         this.url = url;
-        this.apiKey = apiKey;
+        this.userName = userName;
         this.password = password;
     }
 
@@ -60,8 +60,8 @@ public class DNACRESTEndpoint extends AbstractRESTClientBuilder {
     @Override
     public Client build() {
         if (getApiKey()== null) {
-            Token t = findAPIKey();
-            setApiKey(t.getToken());
+            String t = findAPIKey();
+            setApiKey(t);
         }
         return getClientWithAPIKey();
     }
@@ -77,7 +77,7 @@ public class DNACRESTEndpoint extends AbstractRESTClientBuilder {
         return client;
     }
 
-    public Token findAPIKey() {
+    public String findAPIKey() {
         Client client = ClientBuilder.newClient();
         HttpAuthenticationFeature authFeature = HttpAuthenticationFeature.basic(getUserName(), getPassword());
 
@@ -88,7 +88,8 @@ public class DNACRESTEndpoint extends AbstractRESTClientBuilder {
                 .request(MediaType.APPLICATION_JSON_TYPE)
                 .header("Content-Type", MediaType.APPLICATION_JSON)
                 .post(Entity.json(""));
-
-        return (resp.readEntity(Token.class));
+        String output = resp.readEntity(String.class);
+        System.out.println(output);
+        return output;
     }
 }
