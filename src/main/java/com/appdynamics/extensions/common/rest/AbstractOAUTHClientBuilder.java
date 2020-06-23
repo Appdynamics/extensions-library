@@ -1,21 +1,19 @@
 package com.appdynamics.extensions.common.rest;
 
 import javax.ws.rs.client.Client;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.client.ClientRequestFilter;
 import java.io.IOException;
 
-public class ControllerRESTAPIEndpoint extends AbstractOAUTHClientBuilder {
-    private String url;
+public class AbstractOAUTHClientBuilder extends AbstractRESTClientBuilder {
+ private String apiKey;
 
-    public ControllerRESTAPIEndpoint(String url, String apiKey) {
-        super(apiKey);
-        this.url = url;
+ public AbstractOAUTHClientBuilder(String apiKey) {
+        this.apiKey = apiKey;
     }
 
-    public String getUrl() {
-        return url;
+    public String getApiKey() {
+        return apiKey;
     }
 
     @Override
